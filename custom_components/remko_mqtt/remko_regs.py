@@ -6,8 +6,20 @@ FIELD_MINVALUE = 3
 FIELD_MAXVALUE = 4
 
 # Query list
-query_list = []  # [1079, 1082, 1893, 1894, 1951, 5001, 5032, 5039, 5320, 5693]
-
+query_list = [1079,
+              1082,
+              1893,
+              1894,
+              1951,
+              5001,
+              5032,
+              5034, # 5034 - Heating circuit temperature (ºC)
+              5039, # 5039 - Water tank temperature (ºC)
+              5055, # 5055 - Outdoor temperature (ºC)
+              5190, # 5190 - Actual heating water temperature (ºC)
+              5232, # 5232 - Current thermal output (kWh)
+              5320,
+              5693]
 
 # Register as sensors
 reg_id = {
@@ -18,8 +30,11 @@ reg_id = {
     "party_mode": ["1894", "switch", "", "", ""],
     "main_mode": ["1951", "select_input", "", "", ""],
     "opmode": ["5001", "sensor_mode", "", "", ""],
-    "out_temp": ["5032", "temperature", "ºC", 0, 40],
+    "heating_circuit_temperature": ["5034", "temperature", "ºC", 0, 20],
     "water_temp": ["5039", "temperature", "ºC", 0, 70],
+    "out_temp": ["5055", "temperature", "ºC", -100, 100],
+    "actual_heating_water_temperature": ["5190", "temperature", "ºC", 0, 60],
+    "thermal_output": ["5232", "sensor_energy", "kW", 0, 20],
     "el_consumption": ["5320", "sensor_el", "W", 0, 6000],
     "dhw_heating": ["5693", "action", "", "", ""],
     "communication_status": ["communication_status", "generated_sensor", "", 0, 0],
@@ -62,4 +77,7 @@ id_names = {
     "opmode14": ["Blocking signal", "Sperrsignal"],
     "opmode15": ["Hygiene function", "Hygienefunktion"],
     "opmode16": ["Silent mode", "Silent Modus"],
+    "heating_circuit_temperature": ["Heating circuit temperature", "Heating circuit temperature"],
+    "actual_heating_water_temperature": ["Actual heating temperature", "Actual heating temperature"],
+    "thermal_output": ["Thermal output", "Thermal output"],
 }

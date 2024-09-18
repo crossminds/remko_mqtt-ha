@@ -44,7 +44,7 @@ async def async_setup_entry(
     def async_add_sensor(sensor):
         """Add a Remko sensor property"""
         async_add_entities([sensor], True)
-        # _LOGGER.debug('Added new sensor %s / %s', sensor.entity_id, sensor.unique_id)
+        _LOGGER.info('Added new sensor %s / %s', sensor.entity_id, sensor.unique_id)
 
     worker = hass.data[DOMAIN].worker
     heatpump = hass.data[DOMAIN]._heatpumps[config_entry.data[CONF_ID]]
@@ -55,6 +55,7 @@ async def async_setup_entry(
             "temperature",
             "sensor",
             "sensor_el",
+            "sensor_energy",
             "sensor_input",
             "sensor_mode",
         ]:

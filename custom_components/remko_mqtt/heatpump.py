@@ -72,7 +72,7 @@ class HeatPump:
                 json_dict = json_dict.get("values")
                 if message.topic == self._data_topic:
                     for k in json_dict:
-                        # Map incomming registers to named settings based on id_reg (Remko_regs)
+                        # Map incoming registers to named settings based on id_reg (Remko_regs)
                         if k in self._id_reg:
                             _LOGGER.debug("[%s] [%s] [%s]", self._id, k, json_dict[k])
 
@@ -80,7 +80,7 @@ class HeatPump:
                             self._hpstate[k] = json_dict[k]
                             if reg_id[self._id_reg[k]][1] == "switch":
                                 self._hpstate[k] = int(self._hpstate[k], 16) > 0
-                            if reg_id[self._id_reg[k]][1] == "sensor_el":
+                            if reg_id[self._id_reg[k]][1] == "sensor_el" or reg_id[self._id_reg[k]][1] == "sensor_energy":
                                 self._hpstate[k] = int(self._hpstate[k], 16) * 100
                             if reg_id[self._id_reg[k]][1] in [
                                 "temperature",
