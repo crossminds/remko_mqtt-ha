@@ -34,7 +34,7 @@ reg_id = {
     "water_temp": ["5039", "temperature", "ºC", 0, 70],
     "out_temp": ["5055", "temperature", "ºC", -100, 100],
     "actual_heating_water_temperature": ["5190", "temperature", "ºC", 0, 60],
-    "thermal_output": ["5232", "sensor_energy", "kW", 0, 20],
+    "thermal_output": ["5232", "sensor_energy", "W", 0, 20],
     "el_consumption": ["5320", "sensor_el", "W", 0, 6000],
     "dhw_heating": ["5693", "action", "", "", ""],
     "communication_status": ["communication_status", "generated_sensor", "", 0, 0],
