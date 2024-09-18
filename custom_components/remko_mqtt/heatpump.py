@@ -140,7 +140,8 @@ class HeatPump:
             self.message_received,
         )
         # """ Wait before getting new values """
-        await asyncio.sleep(5)
+        # get new values as soon as available
+        # await asyncio.sleep(5)
         self._mqtt_counter = self._freq
         self._hass.bus.fire(self._domain + "_" + self._id + "_msg_rec_event", {})
 
